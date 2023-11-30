@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import AddToDo from "./components/AddToDo.jsx";
-import ToDoList from "./components/ToDoList";
+import AddToDo from "../components/AddToDo.jsx";
+import ToDoList from "../components/ToDoList.jsx";
 
 export default function ToDoPage() {
   const [todos, setToDo] = useState([]);

@@ -1,7 +1,19 @@
 export default function ToDoItem({ todo }) {
-  return (
-    <ul>
-      <li>{todo.aufgabe}</li>
-    </ul>
-  );
+  if (todo.status === "not-ready") {
+    return (
+      <div>
+        <ul>
+          <li>{todo.aufgabe}</li>
+        </ul>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <ul>
+          <li className="red">{todo.aufgabe}</li>
+        </ul>
+      </div>
+    );
+  }
 }

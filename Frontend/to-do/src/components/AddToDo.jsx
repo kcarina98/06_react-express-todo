@@ -5,7 +5,8 @@ export default function AddToDo({ setRefresh }) {
   const statusRef = useRef();
 
   function save() {
-    console.log(aufgabeRef.current.value);
+    console.log("Aufgabe: ", aufgabeRef.current.value);
+    console.log("Status: ", statusRef.current.value);
     const todo = {
       aufgabe: aufgabeRef.current.value,
       status: statusRef.current.value,
@@ -18,7 +19,6 @@ export default function AddToDo({ setRefresh }) {
     }).then((response) => {
       if (response.ok) {
         aufgabeRef.current.value = "";
-        statusRef.current.value = "";
         setRefresh((prev) => !prev);
       }
     });
@@ -31,7 +31,10 @@ export default function AddToDo({ setRefresh }) {
       </div>
       <div>
         <label htmlFor="status">Status </label>
-        <input ref={statusRef} type="text" id="status" />
+        <select ref={statusRef} id="status" defaultValue={"not-ready"}>
+          <option value="ready">Erledigt</option>
+          <option value="not-ready">Offen</option>
+        </select>
       </div>
       <div>
         <button onClick={save}>To Do speichern</button>
